@@ -1,0 +1,9 @@
+class Solution {
+    int firstOccurence(String txt, String pat) {
+       int ind=txt.indexOf(pat);
+       if(ind!=-1){
+           return ind;
+       }
+        return -1;
+    }
+}
