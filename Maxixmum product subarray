@@ -1,0 +1,18 @@
+class Solution {
+    int maxProduct(int[] arr) {
+        int maxProduct = arr[0];
+        int currentMax = arr[0];
+        int currentMin = arr[0];
+
+        for (int i = 1; i < arr.length; i++) {
+            int num = arr[i];
+            int option1 = num;
+            int option2 = currentMax * num;
+            int option3 = currentMin * num;
+            currentMax = Math.max(option1, Math.max(option2, option3));
+            currentMin = Math.min(option1, Math.min(option2, option3));
+            maxProduct = Math.max(maxProduct, currentMax);
+        }
+        return maxProduct;
+    }
+} 
