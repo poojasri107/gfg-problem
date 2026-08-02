@@ -1,0 +1,15 @@
+class Solution {
+    ArrayList<Integer> removeDuplicates(int[] arr) {
+        ArrayList<Integer>l1=new ArrayList<>();
+        if(arr==null || arr.length==0){
+            return l1;
+        }
+        l1.add(arr[0]);
+        for(int i=1;i<arr.length;i++){
+            if(arr[i]!=arr[i-1]){
+                l1.add(arr[i]);
+            }
+        }
+        return l1;
+    }
+}
