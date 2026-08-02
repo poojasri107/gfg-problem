@@ -1,0 +1,11 @@
+class Solution {
+    int missingNum(int arr[]) {
+        long n=arr.length+1;
+        long sum=0;
+        for(int x:arr){
+            sum+=x;
+        }
+        long exp=n*(n+1)/2;
+        return (int)(exp-sum);
+    }
+}
