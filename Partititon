@@ -1,0 +1,27 @@
+class Solution {
+    static int countPartitions(int[] arr, int diff) {
+        int total = 0;
+
+        for (int x : arr) {
+            total += x;
+        }
+
+        // Impossible cases
+        if (total < diff || (total + diff) % 2 != 0) {
+            return 0;
+        }
+
+        int target = (total + diff) / 2;
+
+        int[] dp = new int[target + 1];
+        dp[0] = 1;
+
+        for (int num : arr) {
+            for (int sum = target; sum >= num; sum--) {
+                dp[sum] += dp[sum - num];
+            }
+        }
+
+        return dp[target];
+    }
+}
