@@ -1,0 +1,16 @@
+class Solution {
+    static int count(int[] coins, int sum) {
+        int[] dp = new int[sum + 1];
+
+        // One way to make sum 0: choose nothing
+        dp[0] = 1;
+
+        for (int coin : coins) {
+            for (int i = coin; i <= sum; i++) {
+                dp[i] += dp[i - coin];
+            }
+        }
+
+        return dp[sum];
+    }
+}
